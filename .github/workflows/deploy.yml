@@ -29,15 +29,15 @@ jobs:
           node-version: lts/*
 
       - name: Install step
-        run: "deno install"
+        run: "npm install"
 
       - name: Build step
-        run: "deno run -A deno.ts"
+        run: "node --experimental-strip-types node.ts"
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: "hyl-wah-60s-25"
+          project: "hyl-wah-60s-67"
           entrypoint: "jsr:@deno/nextjs-start/v15"
           root: "."
           include: .next, public
